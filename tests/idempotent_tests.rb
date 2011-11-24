@@ -37,11 +37,11 @@ Shindo.tests('Excon request idempotencey') do
     response.status
   end
 
-  tests("Idempotent request with socket erroring first 5 times").raises(Excon::Errors::SocketError) do
+  tests("Idempotent request with socket erroring first 9 times").raises(Excon::Errors::SocketError) do
     run_count = 0
     Excon.stub({:method => :get}) { |params|
       run_count += 1
-      if run_count <= 5 # First 5 calls fail.
+      if run_count <= 9 # First 5 calls fail.
         raise Excon::Errors::SocketError.new(Exception.new "Mock Error")
       else
         {:body => params[:body], :headers => params[:headers], :status => 200}
