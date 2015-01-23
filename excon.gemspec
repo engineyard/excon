@@ -1,3 +1,8 @@
+# -*- encoding: utf-8 -*-
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'excon/version'
+
 ## This is the rakegem gemspec template. Make sure you read and understand
 ## all of the comments. Some sections require modification, and others can
 ## be deleted if you don't need them. Once you understand the contents of
@@ -13,7 +18,7 @@ Gem::Specification.new do |s|
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
   s.name              = 'excon'
-  s.version           = '0.43.0'
+  s.version           = Excon::VERSION
   s.date              = '2015-01-09'
   s.rubyforge_project = 'excon'
 
